@@ -6,8 +6,9 @@ const getDataFromApi = (location, lang) => {
   )
     .then((response) => response.json())
     .then((data) => {
-      return data.results;
-    });
+      return data;
+    })
+    .catch(error => console.log(error));
 };
 
 export default getDataFromApi;
