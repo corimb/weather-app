@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import getDataFromApi from '../services/api';
-// import Data from './Data';
 
-import '../css/App.css';
+import Icons from './Icons';
+import minIcon from '../images/cold.svg';
+import maxIcon from '../images/hot.svg';
+import humidityIcon from '../images/humidity.svg';
+import pressureIcon from '../images/meter.svg';
+import '../style/App.scss';
 
 const App = () => {
   
@@ -16,85 +20,66 @@ const App = () => {
     getDataFromApi(searchCity, 'en').then(data => {setWeatherData(data)});
   }
 
-  function keyValue (value) {
-    let name;
-    switch (value){
-      case 'feels_like':
-        name = 'feels like ';
-      break;
-      case 'temp_min':
-        name = 'min ';
-      break;
-      case 'temp_max':
-        name = 'max ';
-      break;
-      case 'pressure':
-        name = 'pressure ';
-      break;
-      case 'humidity':
-        name = 'humidity ';
-      break;
-      default: 
-        name = ''
-    }
-    return name
-  }
-
-  function heySufix (value) {
-    let sufix;
-    switch (value){
-      case 'temp':
-      case 'feels_like':
-      case 'temp_min':
-      case 'temp_max':
-        sufix = 'ºC';
-      break;
-      case 'pressure':
-        sufix = 'pHa';
-        break;
-      case 'humidity':
-        sufix = '%';
-        break;
-      default: 
-        sufix = ''
-    }
-    return sufix;
-  }
-
-  
   return (
     <div className='App'>
+      <h1>Check the weather!</h1>
       <form
         onSubmit={(e) => {
           e.preventDefault();
         }}
-      >
-        <label htmlFor='search'>City</label>
-        <input id='search' type='text' value={searchCity} onChange={searchCityValue}></input>
-        <button type='submit' onClick={submit}>
-          Search
-        </button>
+      className="form">
+          <label htmlFor='search'>City</label>
+          <input id='search' type='text' value={searchCity} onChange={searchCityValue}></input>
+          <button className="btn" type='submit' onClick={submit}>
+            Search
+          </button>
       </form>
-      <ul>
-      <li>
+      
         {
-        weatherData ? (
-          <div>
-           {weatherData.weather[0].description}
-            {Object.keys(weatherData.main).map((key, i) => (
-              <p key={i}>
-                {<span>{keyValue(key)}</span>}
-                <span>{weatherData.main[key]}{heySufix(key)}</span>
-              </p>
-            ))}
-            {weatherData.name}
-          </div>
+        weatherData.cod === 200 ? (
+          <>
+            <section className="top-container">
+            <Icons 
+            iconId={weatherData.weather.map(item => {return item.id})} 
+            sunrise={weatherData.sys.sunrise} 
+            sunset={weatherData.sys.sunset}/>
+              <article>
+                      <h3>{weatherData.weather.map(item =>{return item.description})}</h3>
+                      <h2>{Math.floor(weatherData.main.temp)}ºC</h2>
+                      <p>{Math.floor(weatherData.main.feels_like)}ºC feels like</p>
+                      <h4>{weatherData.name}</h4>
+              </article>
+            </section>
+            <section className="bottom-container">
+                <article>
+                    <div><img src={minIcon} alt="min temp icon"></img></div>
+                    <div>{Math.floor(weatherData.main.temp_min)}ºC</div>
+                </article>
+                <article>
+                    <div><img src={maxIcon} alt="max temp icon"></img></div>
+                    <div>{Math.floor(weatherData.main.temp_max)}ºC</div>
+                </article>
+                <article>
+                    <div><img src={humidityIcon} alt="humidity icon"></img></div>
+                    <div>{weatherData.main.humidity}%</div>
+                </article>
+                <article>
+                    <div><img src={pressureIcon} alt="pressure icon"></img></div>
+                    <div>{weatherData.main.pressure}pHa</div>
+                </article>
+            </section>
+          </>
           ) : null
-        } 
-      </li>
-      </ul>
+        }
+        {weatherData.cod === '404' ? (
+                <div className="not-found">
+                    <h2>Ooops! Location not found</h2>
+                    <p>Make sure you have typed the name of the city correctly</p>
+                </div>
+            ) : null} 
     </div>   
   );
 };
 
 export default App;
+
