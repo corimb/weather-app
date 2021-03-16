@@ -6,12 +6,14 @@ body {
 }
 
 h1 {
-  padding-top: 1em;
   font-family: 'Satisfy', cursive;
   text-align: center;
   font-size: 30px;
   @include tablet {
-    padding-top: 2em;
+    padding-top: 1em;
+  }
+  @include desktop {
+    padding-top: 1em;
   }
 }
 
@@ -20,6 +22,25 @@ h2 {
 }
 h3 {
   font-weight: 500;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.heart-transparent,
+.heart-black {
+  padding: 20px;
+  width: 25px;
+  @include tablet {
+    padding: 30px;
+    width: 40px;
+  }
+}
+
+.hidden {
+  display: none;
 }
 
 .form {
@@ -42,13 +63,15 @@ h3 {
     border: 0px;
     color: white;
     font-weight: bold;
+    font-size: 14px;
     cursor: pointer;
     &:hover {
-      background-color: cadetblue;
+      background-color: #ff9d6fa6;
     }
     @include tablet {
-      width: 10em;
-      height: 2.5em;
+      font-size: 22px;
+      width: 9em;
+      height: 2em;
     }
   }
   input {
@@ -73,10 +96,9 @@ h3 {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin: 4em auto 0 auto;
+  margin: 2em auto 0 auto;
   max-width: 400px;
   @include tablet {
-    margin: 7em auto 0 auto;
     max-width: 500px;
     font-size: medium;
   }
@@ -107,5 +129,131 @@ h3 {
   margin-top: 7em;
   h2 {
     font-size: 30px;
+  }
+}
+
+.footer {
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  @include tablet {
+    font-size: 16px;
+  }
+}
+
+main {
+  height: 90vh;
+  width: 100vw;
+}
+
+.btn-favorites{
+  display:flex;
+  justify-content: center;
+  .btn {
+    margin-top: 2em;
+    width: 12em;
+    height: 2em;
+    background-color: rgba(58, 83, 136, 0.705);
+    border-radius: 5px;
+    border: 0px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+      background-color: #ff9d6fa6;
+    }
+    @include tablet {
+      font-size: 18px;
+      width: 10em;
+      height: 2em;
+    }
+  }
+}
+
+.btn {
+  margin: 1em;
+  width: 5em;
+  height: 1.7em;
+  border-radius: 5px;
+  border: 0px;
+  color: Black;
+  background-color: #f7fcfb;
+  font-weight: bold;
+  cursor: pointer;
+  &:hover {
+    background-color: white;
+  }
+  @include tablet {
+    width: 8em;
+    height: 2em;
+    margin: 0.5em;
+    font-size: 25px;
+  }
+}
+
+.fav-page{
+  height: 80vh;
+  .fav-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+    padding-left: 0;
+    @include tablet{
+      margin-top: 3em;
+    }
+    @include desktop{
+      margin-top: 3em;
+    }
+    img{
+      width: 50px;
+    }
+    img:last-of-type{
+      width: 20px;
+      padding: 5px;
+      border-radius: 4px;
+      cursor: pointer;
+      &:hover{
+        background-color: white;
+      }
+    }
+    h2{
+      font-size: 15px;
+      @include tablet{
+        font-size: 20px;
+      }
+    }
+    li {
+      display: flex;
+      flex-direction: row;
+      background-color: white;
+      align-items: center;
+      justify-content: space-around;
+      min-width: 250px;
+      color: black;
+      margin: 10px;
+      border-radius: 20px;
+      box-shadow: 2px 2px 8px 2px #edebeb;
+      @include tablet{
+        margin: 15px;
+        min-width: 350px;
+        min-height: 70px;
+      }
+      @include desktop{
+        min-width: 350px;
+        min-height: 70px;
+      }
+      &:hover{
+        color: white;
+        background-color: #ff9d6fa6;
+      }
+    }
+  }
+  .fav-none{
+    text-align: center;
+    margin: 2em auto;
   }
 }
