@@ -66,9 +66,9 @@ a {
     }
     .btn {
         width: 7em;
-        height: 1.6em;
+        height: 1.65em;
         background-color: rgba(3, 49, 148, 0.705);
-        border-radius: 2px;
+        border-radius: 0px 2px 2px 0px;
         box-shadow: 1px 1px 6px 1px #edebeb;
         border: 0px;
         color: white;
@@ -79,14 +79,14 @@ a {
         }
         @include tablet {
             width: 9em;
-            height: 2.1em;
+            height: 2.2em;
         }
     }
     input {
         height: 1.5em;
         width: 12em;
         border: 0;
-        border-radius: 2px;
+        border-radius: 2px 0px 0px 2px;
         box-shadow: 1px 1px 6px 1px #edebeb;
         &:focus {
             outline: 1px solid rgb(238, 238, 238);
