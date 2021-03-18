@@ -1,20 +1,23 @@
 {
   "files": {
-    "main.css": "./static/css/main.e58ac32c.chunk.css",
-    "main.js": "./static/js/main.1f46ae06.chunk.js",
-    "main.js.map": "./static/js/main.1f46ae06.chunk.js.map",
+    "main.css": "./static/css/main.2bfb9866.chunk.css",
+    "main.js": "./static/js/main.692a3ca3.chunk.js",
+    "main.js.map": "./static/js/main.692a3ca3.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.94c40845.js",
     "runtime-main.js.map": "./static/js/runtime-main.94c40845.js.map",
-    "static/js/2.8f59d543.chunk.js": "./static/js/2.8f59d543.chunk.js",
-    "static/js/2.8f59d543.chunk.js.map": "./static/js/2.8f59d543.chunk.js.map",
+    "static/js/2.83c93816.chunk.js": "./static/js/2.83c93816.chunk.js",
+    "static/js/2.83c93816.chunk.js.map": "./static/js/2.83c93816.chunk.js.map",
     "index.html": "./index.html",
-    "precache-manifest.cb092ac6d7d58b9f419386f71122bd6d.js": "./precache-manifest.cb092ac6d7d58b9f419386f71122bd6d.js",
+    "precache-manifest.47754b81ca11c63c6f4879a8c14cdec9.js": "./precache-manifest.47754b81ca11c63c6f4879a8c14cdec9.js",
     "service-worker.js": "./service-worker.js",
-    "static/css/main.e58ac32c.chunk.css.map": "./static/css/main.e58ac32c.chunk.css.map",
-    "static/js/2.8f59d543.chunk.js.LICENSE.txt": "./static/js/2.8f59d543.chunk.js.LICENSE.txt",
+    "static/css/main.2bfb9866.chunk.css.map": "./static/css/main.2bfb9866.chunk.css.map",
+    "static/js/2.83c93816.chunk.js.LICENSE.txt": "./static/js/2.83c93816.chunk.js.LICENSE.txt",
+    "static/media/added.svg": "./static/media/added.c862df86.svg",
     "static/media/cloudy_day.svg": "./static/media/cloudy_day.070b2c4f.svg",
     "static/media/cloudy_night.svg": "./static/media/cloudy_night.0a3ce6b0.svg",
     "static/media/cold.svg": "./static/media/cold.fe0aefb0.svg",
+    "static/media/delete.svg": "./static/media/delete.5a226e36.svg",
+    "static/media/heart_transparent.svg": "./static/media/heart_transparent.7746f5e4.svg",
     "static/media/hot.svg": "./static/media/hot.7e5e659b.svg",
     "static/media/humidity.svg": "./static/media/humidity.7998765e.svg",
     "static/media/meter.svg": "./static/media/meter.aa8ae84d.svg",
@@ -27,8 +30,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.94c40845.js",
-    "static/js/2.8f59d543.chunk.js",
-    "static/css/main.e58ac32c.chunk.css",
-    "static/js/main.1f46ae06.chunk.js"
+    "static/js/2.83c93816.chunk.js",
+    "static/css/main.2bfb9866.chunk.css",
+    "static/js/main.692a3ca3.chunk.js"
   ]
 }
