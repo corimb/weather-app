@@ -30,7 +30,7 @@ a {
 }
 
 .heart-transparent,
-.heart-black {
+.heart-added {
   padding: 20px;
   width: 25px;
   @include tablet {
@@ -173,7 +173,7 @@ main {
   }
 }
 
-.btn {
+.back {
   margin: 1em;
   width: 5em;
   height: 1.7em;
@@ -183,14 +183,18 @@ main {
   background-color: #f7fcfb;
   font-weight: bold;
   cursor: pointer;
+  transition: font-size .5s ease;
   &:hover {
-    background-color: white;
+    font-size: 1.2em;
   }
   @include tablet {
     width: 8em;
     height: 2em;
     margin: 0.5em;
     font-size: 25px;
+    &:hover {
+      font-size: 28px;
+    }
   }
 }
 
@@ -257,3 +261,9 @@ main {
     margin: 2em auto;
   }
 }
+
+.loading{
+  text-align: center;
+}
+
+

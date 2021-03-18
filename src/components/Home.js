@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {Link} from "react-router-dom";
 import {getDataFromApi} from '../services/api';
 import GeoLocationApi from '../services/geolocation';
-import {saveFavStorage} from '../services/storage';
+import {saveFavStorage, readFavStorage} from '../services/storage';
 
 import Icons from './Icons';
 import minIcon from '../images/cold.svg';
@@ -10,7 +10,7 @@ import maxIcon from '../images/hot.svg';
 import humidityIcon from '../images/humidity.svg';
 import pressureIcon from '../images/meter.svg';
 import heartIconTransparent from '../images/heart_transparent.svg';
-import heartIconBlack from '../images/heart_black.svg';
+import addedToFav from '../images/added.svg';
 
 
 const Home = () => {
@@ -18,6 +18,7 @@ const Home = () => {
     const searchCityValue = event => {setSearchCity(event.target.value)};
 
     const [weatherData, setWeatherData] = useState(null);
+    const [isFav, setIsFav] = useState(false);
 
     
     useEffect(() => {
@@ -39,11 +40,21 @@ const Home = () => {
     }, []);
 
     const submit = () => {
-        getDataFromApi(searchCity).then(data => {setWeatherData(data)});
+        getDataFromApi(searchCity).then(data => {
+            const favoritesLocal = readFavStorage();
+            if(favoritesLocal.includes(data.id)){
+                setIsFav(true);
+            } else {
+                setIsFav(false)
+            }
+            setWeatherData(data)
+        });
+        
     }
 
     const saveFavorite = () => {
         saveFavStorage(weatherData)
+        setIsFav(true)
     }
 
     
@@ -52,7 +63,6 @@ const Home = () => {
         <div>
             <Link to="/favorites">
                 <img src={heartIconTransparent} className="heart-transparent" alt="heart Icon"></img>
-                <img src={heartIconBlack} className="heart-black hidden" alt="heart Icon"></img>
             </Link>
         </div>
         <h1>Check the weather!</h1>
@@ -71,7 +81,7 @@ const Home = () => {
             <>
               <section className="top-container">
               <Icons 
-              iconId={weatherData.weather.map(item => {return item.id})} 
+              iconId={weatherData.weather[0].id || 800} 
               sunrise={weatherData.sys.sunrise} 
               sunset={weatherData.sys.sunset}/>
                 <article>
@@ -99,11 +109,17 @@ const Home = () => {
                       <div>{weatherData.main.pressure}pHa</div>
                   </article>
               </section>
+              {!isFav ? 
               <section className="btn-favorites">
                 <button className="btn" onClick={saveFavorite}>
                     Add to favorites
                 </button>
               </section>
+              : 
+                <section className="btn-favorites">
+                    <img className="heart-added"src={addedToFav} alt="added to favorites"></img>
+                </section>
+                }
             </>
             ) : null
           }
