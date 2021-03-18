@@ -42,7 +42,7 @@ const Home = () => {
     const submit = () => {
         getDataFromApi(searchCity).then(data => {
             const favoritesLocal = readFavStorage();
-            if(favoritesLocal.includes(data.id)){
+            if(favoritesLocal && favoritesLocal.includes(data.id)){
                 setIsFav(true);
             } else {
                 setIsFav(false)
