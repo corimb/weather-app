@@ -8,6 +8,8 @@ In this App you can:
 -   search the meteorologic conditions in a different city 🔍
 -   add the ones you want to review more often to your favorites list ❤️
 
+<img src="weather_app.png" alt="weather app web image" width="350" height="300"></img>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Install dependencies 🔧
