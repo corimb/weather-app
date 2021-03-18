@@ -1,269 +1,277 @@
 @import './mixins';
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  background-color: #f7fcfb;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    background-color: #f7fcfb;
 }
 
 h1 {
-  font-family: 'Satisfy', cursive;
-  text-align: center;
-  font-size: 30px;
-  @include tablet {
-    padding-top: 1em;
-  }
-  @include desktop {
-    padding-top: 1em;
-  }
+    font-family: 'Satisfy', cursive;
+    text-align: center;
+    font-size: 30px;
+    margin-block-start: 0px;
+    @include tablet {
+        padding-top: 1em;
+    }
+    @include desktop {
+        padding-top: 1em;
+    }
 }
 
 h2 {
-  font-size: 45px;
+    font-size: 45px;
 }
 h3 {
-  font-weight: 500;
+    font-weight: 500;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 .heart-transparent,
 .heart-added {
-  padding: 20px;
-  width: 25px;
-  @include tablet {
-    padding: 30px;
-    width: 40px;
-  }
+    padding: 20px;
+    width: 25px;
+    transition: width 0.5s ease;
+    @include tablet {
+        padding: 30px;
+        width: 40px;
+    }
+}
+
+.heart-transparent:hover {
+    width: 30px;
+
+    @include tablet {
+        width: 50px;
+    }
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
 .form {
-  text-align: center;
-  margin-top: 5em;
-  font-weight: bold;
-  label {
-    padding-right: 1em;
-    @include tablet {
-      font-size: 20px;
-      padding-right: 1em;
-    }
-  }
-  .btn {
-    margin-left: 2em;
-    width: 7em;
-    height: 2em;
-    background-color: rgba(3, 49, 148, 0.705);
-    border-radius: 5px;
-    border: 0px;
-    color: white;
+    text-align: center;
+    margin-top: 5em;
     font-weight: bold;
-    font-size: 14px;
-    cursor: pointer;
-    &:hover {
-      background-color: #ff9d6fa6;
+    label {
+        padding-right: 1em;
+        @include tablet {
+            font-size: 20px;
+            padding-right: 1em;
+        }
     }
-    @include tablet {
-      font-size: 22px;
-      width: 9em;
-      height: 2em;
+    .btn {
+        width: 7em;
+        height: 1.6em;
+        background-color: rgba(3, 49, 148, 0.705);
+        border-radius: 2px;
+        box-shadow: 1px 1px 6px 1px #edebeb;
+        border: 0px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        &:hover {
+            background-color: #ff9d6fa6;
+        }
+        @include tablet {
+            width: 9em;
+            height: 2.1em;
+        }
     }
-  }
-  input {
-    height: 1.5em;
-    width: 12em;
-    border: 0;
-    box-shadow: 1px 1px 6px 1px #edebeb;
-    &:focus {
-      outline: 1px solid rgb(238, 238, 238);
+    input {
+        height: 1.5em;
+        width: 12em;
+        border: 0;
+        border-radius: 2px;
+        box-shadow: 1px 1px 6px 1px #edebeb;
+        &:focus {
+            outline: 1px solid rgb(238, 238, 238);
+        }
+        &::placeholder {
+            background-color: rgb(185, 185, 185);
+        }
+        @include tablet {
+            height: 2em;
+            width: 20em;
+        }
     }
-    &::placeholder {
-      background-color: rgb(185, 185, 185);
-    }
-    @include tablet {
-      height: 2em;
-      width: 20em;
-    }
-  }
 }
 
 .top-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 2em auto 0 auto;
-  max-width: 400px;
-  @include tablet {
-    max-width: 500px;
-    font-size: medium;
-  }
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 2em auto 0 auto;
+    max-width: 400px;
+    @include tablet {
+        max-width: 500px;
+        font-size: medium;
+    }
 }
 
 .bottom-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  text-align: center;
-  font-size: 13px;
-  max-width: 450px;
-  margin: 2em auto 0 auto;
-  div {
     display: flex;
-    justify-content: center;
-    padding: 5px;
-  }
-  @include tablet {
-    max-width: 650px;
-    margin: 5em auto 0 auto;
-    font-size: medium;
-  }
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    font-size: 13px;
+    max-width: 450px;
+    margin: 2em auto 0 auto;
+    div {
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+    }
+    @include tablet {
+        max-width: 650px;
+        margin: 5em auto 0 auto;
+        font-size: medium;
+    }
 }
 
 .not-found {
-  text-align: center;
-  margin-top: 7em;
-  h2 {
-    font-size: 30px;
-  }
+    text-align: center;
+    margin-top: 7em;
+    h2 {
+        font-size: 30px;
+    }
 }
 
 .footer {
-  height: 10vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 12px;
-  @include tablet {
-    font-size: 16px;
-  }
+    position: fixed;
+    bottom: 0;
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    @include tablet {
+        font-size: 16px;
+    }
 }
 
 main {
-  height: 90vh;
-  width: 100vw;
+    height: 90vh;
+    width: 100vw;
 }
 
-.btn-favorites{
-  display:flex;
-  justify-content: center;
-  .btn {
-    margin-top: 2em;
-    width: 12em;
-    height: 2em;
-    background-color: rgba(58, 83, 136, 0.705);
-    border-radius: 5px;
-    border: 0px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    &:hover {
-      background-color: #ff9d6fa6;
+.btn-favorites {
+    display: flex;
+    justify-content: center;
+    .btn {
+        margin-top: 2em;
+        width: 12em;
+        height: 2em;
+        background-color: rgba(58, 83, 136, 0.705);
+        border-radius: 5px;
+        border: 0px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        &:hover {
+            background-color: #ff9d6fa6;
+        }
+        @include tablet {
+            font-size: 18px;
+            width: 10em;
+            height: 2em;
+        }
     }
-    @include tablet {
-      font-size: 18px;
-      width: 10em;
-      height: 2em;
-    }
-  }
 }
 
 .back {
-  margin: 1em;
-  width: 5em;
-  height: 1.7em;
-  border-radius: 5px;
-  border: 0px;
-  color: Black;
-  background-color: #f7fcfb;
-  font-weight: bold;
-  cursor: pointer;
-  transition: font-size .5s ease;
-  &:hover {
-    font-size: 1.2em;
-  }
-  @include tablet {
-    width: 8em;
-    height: 2em;
-    margin: 0.5em;
-    font-size: 25px;
+    margin: 1em;
+    width: 5em;
+    height: 1.7em;
+    border-radius: 5px;
+    border: 0px;
+    color: Black;
+    background-color: #f7fcfb;
+    font-weight: bold;
+    cursor: pointer;
+    transition: font-size 0.5s ease;
     &:hover {
-      font-size: 28px;
+        font-size: 1.2em;
     }
-  }
+    @include tablet {
+        width: 8em;
+        height: 2em;
+        margin: 0.5em;
+        font-size: 25px;
+        &:hover {
+            font-size: 28px;
+        }
+    }
 }
 
-.fav-page{
-  height: 80vh;
-  .fav-list{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    list-style-type: none;
-    padding-left: 0;
-    @include tablet{
-      margin-top: 3em;
+.fav-page {
+    .fav-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style-type: none;
+        padding-left: 0;
+        @include tablet {
+            margin-top: 3em;
+        }
+        @include desktop {
+            margin-top: 3em;
+        }
+        img {
+            width: 50px;
+        }
+        img:last-of-type {
+            width: 20px;
+            padding: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            &:hover {
+                background-color: white;
+            }
+        }
+        h2 {
+            font-size: 15px;
+            @include tablet {
+                font-size: 20px;
+            }
+        }
+        li {
+            display: flex;
+            flex-direction: row;
+            background-color: white;
+            align-items: center;
+            justify-content: space-around;
+            min-width: 250px;
+            color: black;
+            margin: 10px;
+            border-radius: 20px;
+            box-shadow: 2px 2px 8px 2px #edebeb;
+            @include tablet {
+                margin: 15px;
+                min-width: 350px;
+                min-height: 70px;
+            }
+            @include desktop {
+                min-width: 350px;
+                min-height: 70px;
+            }
+            &:hover {
+                color: white;
+                background-color: #ff9d6fa6;
+            }
+        }
     }
-    @include desktop{
-      margin-top: 3em;
+    .fav-none {
+        text-align: center;
+        margin: 2em auto;
     }
-    img{
-      width: 50px;
-    }
-    img:last-of-type{
-      width: 20px;
-      padding: 5px;
-      border-radius: 4px;
-      cursor: pointer;
-      &:hover{
-        background-color: white;
-      }
-    }
-    h2{
-      font-size: 15px;
-      @include tablet{
-        font-size: 20px;
-      }
-    }
-    li {
-      display: flex;
-      flex-direction: row;
-      background-color: white;
-      align-items: center;
-      justify-content: space-around;
-      min-width: 250px;
-      color: black;
-      margin: 10px;
-      border-radius: 20px;
-      box-shadow: 2px 2px 8px 2px #edebeb;
-      @include tablet{
-        margin: 15px;
-        min-width: 350px;
-        min-height: 70px;
-      }
-      @include desktop{
-        min-width: 350px;
-        min-height: 70px;
-      }
-      &:hover{
-        color: white;
-        background-color: #ff9d6fa6;
-      }
-    }
-  }
-  .fav-none{
+}
+
+.loading {
     text-align: center;
-    margin: 2em auto;
-  }
 }
-
-.loading{
-  text-align: center;
-}
-
-

@@ -85,7 +85,7 @@ const Home = () => {
               sunrise={weatherData.sys.sunrise} 
               sunset={weatherData.sys.sunset}/>
                 <article>
-                        <h3>{weatherData.weather.map(item =>{return item.description})}</h3>
+                        <h3>{weatherData.weather[0].description}</h3>
                         <h2>{Math.floor(weatherData.main.temp)}ºC</h2>
                         <p>{Math.floor(weatherData.main.feels_like)}ºC feels like</p>
                         <h4>{weatherData.name}</h4>
