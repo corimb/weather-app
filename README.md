@@ -1,6 +1,6 @@
 ## Weather App React
 
-This is a personal project where I've been practicing how to manage the render of two different APIs and add those different locations to a favorites list in the localStorage.
+This is a personal project where I've been practicing how to manage the render of two APIs and add those different locations to a favorites list in the localStorage.
 
 In this App you can:
 
